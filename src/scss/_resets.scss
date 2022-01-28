@@ -1,0 +1,87 @@
+:root {
+    cursor: default;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+        sans-serif;
+    background-repeat: no-repeat;
+}
+
+body {
+    background: var(--bg);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+:where(ul, li, a) {
+    list-style: none;
+    text-decoration: none;
+}
+
+:where(textarea) {
+    resize: vertical;
+}
+
+:where(button, input, select, textarea) {
+    background-color: transparent; /* 1 */
+    border: 1px solid WindowFrame; /* 1 */
+    color: inherit; /* 1 */
+    font: inherit; /* 2 */
+    letter-spacing: inherit; /* 2 */
+    padding: 0.25em 0.375em; /* 1 */
+}
+
+:where(select) {
+    -webkit-appearance: none;
+    appearance: none;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E")
+        no-repeat right center / 1em;
+    border-radius: 0;
+    padding-right: 1em;
+}
+
+:where(select[multiple]) {
+    background-image: none;
+}
+
+:where([type="color" i], [type="range" i]) {
+    border-width: 0;
+    padding: 0;
+}
+
+:where(iframe, img, input, video, select, textarea) {
+    height: auto;
+    max-width: 100%;
+}
+
+/*
+ * 1. Remove animations when motion is reduced (opinionated).
+ * 2. Remove fixed background attachments when motion is reduced (opinionated).
+ * 3. Remove timed scrolling behaviors when motion is reduced (opinionated).
+ * 4. Remove transitions when motion is reduced (opinionated).
+ */
+@media (prefers-reduced-motion: reduce) {
+    *, ::after, ::before {
+        animation-delay: -1ms !important; /* 1 */
+        animation-duration: 1ms !important; /* 1 */
+        animation-iteration-count: 1 !important; /* 1 */
+        background-attachment: initial !important; /* 2 */
+        scroll-behavior: auto !important; /* 3 */
+        transition-delay: 0s !important; /* 4 */
+        transition-duration: 0s !important; /* 4 */
+    }
+}

@@ -1,0 +1,11 @@
+li {
+    background: var(--bg-app);
+
+    &.completed {
+        --bg-app: green;
+    }
+
+    .content {
+        display: flex;
+    }
+}
