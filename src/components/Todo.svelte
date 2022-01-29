@@ -2,11 +2,11 @@
     export let todo;
 </script>
 
-<li class="todo { todo.completed ? 'completed': ''} ">
+<li class="todo { todo.completed ? 'completed': '' }">
 
     <div class="content">
         <div class="checkbox">
-            <input type="checkbox" name="todo" id="todo" checked="{todo.completed}">
+            <input type="checkbox" name="todo" id="todo" bind:checked={todo.completed}>
         </div>
 
         <div class="title">
@@ -14,7 +14,7 @@
         </div>
         
         <div class="actions">
-            <button>edit</button>
+            <button><span class="material-icons-outlined">edit</span></button>
             <button>x</button>
         </div>
     </div>

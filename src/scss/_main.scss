@@ -2,4 +2,6 @@ main {
     background: var(--bg-app);
     max-width: $max-width;
     width: 100%;
+    padding: 1.5em;
+    border-radius: 10px;
 }

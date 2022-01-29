@@ -1,11 +1,17 @@
 <script>
+    import { todos } from '../store'
+
 	import Todo from './Todo.svelte';
 
-    export let todos;
+    export let todoList;
+
+    todos.subscribe(value => {
+        todoList = value;
+    })
 </script>
 
 <ul class="todos">
-    {#each todos as todo}
-        <Todo {todo}/>
+    {#each todoList as todo}
+        <Todo bind:todo={todo}/>
     {/each}
 </ul>
