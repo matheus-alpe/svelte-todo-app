@@ -1,8 +1,9 @@
 li {
     background: var(--bg-app);
+    border-radius: $border-radius;
 
     &.completed {
-        --bg-app: green;
+        --bg-app: rgba(0, 128, 0, 0.384);
     }
 
     .content {

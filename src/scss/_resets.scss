@@ -21,6 +21,20 @@
     background-repeat: no-repeat;
 }
 
+::-webkit-scrollbar-thumb {
+    -moz-border-radius: $border-radius;
+    -webkit-border-radius: $border-radius;
+    border-radius: 4px;
+    background-color: #dedede;
+    -webkit-box-shadow: 0 0 1px #e2e2e2;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    height: 3px;
+}
+
 body {
     background: var(--bg);
     background-attachment: fixed;
@@ -45,6 +59,7 @@ body {
     font: inherit;
     letter-spacing: inherit;
     padding: 0.25em 0.375em;
+    border-radius: $border-radius;
 }
 
 :where(select) {

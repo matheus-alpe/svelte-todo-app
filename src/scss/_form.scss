@@ -1,11 +1,54 @@
+$input-height: 54px;
+$inner-padding: 15px;
+
 .todo-form {
+    min-height: $input-height;
+}
+
+.input-area {
     input,
     textarea {
         display: block;
         width: 100%;
+        background: var(--bg);
     }
 
-    .modal {
-        // display: none;
+    .title {
+    }
+
+    .description-container {
+        transition: all 2s;
+        @include hidden;
+    }
+
+    &:focus-within {
+        &:before {
+            content: '';
+            background-color: rgba(0, 0, 0, 0.2);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .focus {
+            box-sizing: content-box;
+            padding: $inner-padding;
+            background: var(--bg-app);
+            position: absolute;
+            top: calc(0px - #{$inner-padding});
+            left: calc(0px - #{$inner-padding});
+            width: 100%;
+            z-index: 5;
+            border-radius: $border-radius;
+            box-shadow: $box-shadow;
+        }
+
+        .description-container {
+            @include hidden(false);
+        }
     }
 }

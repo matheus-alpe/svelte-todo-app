@@ -1,0 +1,9 @@
+@mixin hidden($boolean: true) {
+    @if $boolean {
+        visibility: hidden;
+        display: none;
+    } @else {
+        visibility: visible;
+        display: block;
+    }
+}

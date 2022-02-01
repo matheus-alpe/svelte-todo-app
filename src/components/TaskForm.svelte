@@ -26,23 +26,27 @@
 </script>
 
 <form class="todo-form" action="#" on:submit|preventDefault={pushToTodos}>
-    <div>
-        <input
-            type="text"
-            name="title"
-            id="title"
-            placeholder="add a task"
-            bind:value={todo.title}
-        />
-        <div class="modal">
-            <label for="description">Description:</label>
-            <textarea
-                name="description"
-                id="description"
-                rows="4"
-                bind:value={todo.description}
+    <div class="input-area">
+        <div class="focus">
+            <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="add a task"
+                class="title"
+                bind:value={todo.title}
             />
-            <button>Add Todo</button>
+            <div class="description-container">
+                <textarea
+                    name="description"
+                    id="description"
+                    class="description"
+                    placeholder="add a description"
+                    rows="4"
+                    bind:value={todo.description}
+                />
+                <button>Add Todo</button>
+            </div>
         </div>
     </div>
 </form>
