@@ -1,6 +1,7 @@
 li {
     background: var(--bg-app);
     border-radius: $border-radius;
+    padding: 5px;
 
     &.completed {
         --bg-app: rgba(0, 128, 0, 0.384);
@@ -8,5 +9,32 @@ li {
 
     .content {
         display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .title {
+        flex: 1;
+    }
+
+    .description {
+        @include hidden;
+        margin-top: 5px;
+        border-radius: $border-radius 25px 25px 25px;
+
+        span {
+            display: block;
+            padding: 10px;
+        }
+    }
+
+    &:hover {
+        border-radius: $border-radius $border-radius 25px 25px;
+
+        .description {
+            background: var(--bg-app);
+
+            @include hidden(false);
+        }
     }
 }

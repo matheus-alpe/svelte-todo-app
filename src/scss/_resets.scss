@@ -36,6 +36,7 @@
 }
 
 body {
+    padding: 20px 0;
     background: var(--bg);
     background-attachment: fixed;
     min-height: 100vh;
@@ -49,7 +50,7 @@ body {
 }
 
 :where(textarea) {
-    resize: vertical;
+    resize: none;
 }
 
 :where(button, input, select, textarea) {

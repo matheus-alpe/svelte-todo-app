@@ -4,6 +4,8 @@
 
     export let todoList;
 
+    let addBtn;
+
     const unsubscribe = todos.subscribe((value) => {
         todoList = value;
     });
@@ -16,10 +18,17 @@
 
     let todo = Object.assign({}, TODO_TEMPLATE);
 
-    function pushToTodos() {
+    const resetTodo = () => (todo = Object.assign({}, TODO_TEMPLATE));
+
+    function pushToTodos(param) {
         todoList.push(todo);
         todos.set(todoList);
-        todo = Object.assign({}, TODO_TEMPLATE);
+        removeFocus({ target: addBtn });
+    }
+
+    function removeFocus({ target }) {
+        target.blur();
+        resetTodo();
     }
 
     onDestroy(unsubscribe);
@@ -28,24 +37,35 @@
 <form class="todo-form" action="#" on:submit|preventDefault={pushToTodos}>
     <div class="input-area">
         <div class="focus">
-            <input
-                type="text"
-                name="title"
-                id="title"
-                placeholder="add a task"
-                class="title"
-                bind:value={todo.title}
-            />
-            <div class="description-container">
-                <textarea
-                    name="description"
-                    id="description"
-                    class="description"
-                    placeholder="add a description"
-                    rows="4"
-                    bind:value={todo.description}
+            <div class="input-container">
+                <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="add a task"
+                    class="title"
+                    required
+                    bind:value={todo.title}
                 />
-                <button>Add Todo</button>
+                <div class="description-container">
+                    <textarea
+                        name="description"
+                        id="description"
+                        class="description"
+                        placeholder="add a description"
+                        rows="3"
+                        required
+                        bind:value={todo.description}
+                    />
+                </div>
+            </div>
+
+            <div class="action-container">
+                <button type="button" class="close" on:click={removeFocus}
+                    >x</button
+                >
+
+                <button type="submit" class="add" bind:this={addBtn}>+</button>
             </div>
         </div>
     </div>
