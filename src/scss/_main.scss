@@ -5,4 +5,21 @@ main {
     width: 100%;
     padding: 1.5em;
     border-radius: 10px;
+
+    h1 {
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .main-container {
+        flex: 1;
+    }
+
+    .look-this-graph {
+        width: 100%;
+        max-width: 240px;
+    }
 }

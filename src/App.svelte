@@ -8,8 +8,12 @@
 <main class="dark">
     <h1>{name}</h1>
 
-    <Canvas />
-    <TaskForm />
+    <div class="container">
+        <div class="main-container">
+            <TaskForm />
 
-    <ListTodos />
+            <ListTodos />
+        </div>
+        <Canvas />
+    </div>
 </main>

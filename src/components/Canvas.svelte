@@ -1,10 +1,22 @@
 <script>
+    import { todos } from '../store';
+    import { onDestroy } from 'svelte';
+
+    let todoList;
+
+    const unsubscribe = todos.subscribe((value) => {
+        todoList = value;
+    });
+
+    onDestroy(unsubscribe);
+
+    // chartjs config
     import Chart from 'chart.js/auto';
     import { onMount } from 'svelte';
 
     let chartCanvas;
 
-    let chartData = [1, 1];
+    let chartData = [1, todoList.length];
     let chartInstance;
 
     function addData(chart, data) {
@@ -37,5 +49,6 @@
     });
 </script>
 
-<canvas bind:this={chartCanvas} />
-<button on:click={handler}>click</button>
+<div class="look-this-graph">
+    <canvas bind:this={chartCanvas} on:click={handler} />
+</div>
