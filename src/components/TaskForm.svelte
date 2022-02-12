@@ -1,14 +1,7 @@
 <script>
-    import { todos } from '../store';
-    import { onDestroy } from 'svelte';
-
-    export let todoList;
+    import { todosState } from '../store';
 
     let addBtn;
-
-    const unsubscribe = todos.subscribe((value) => {
-        todoList = value;
-    });
 
     const TODO_TEMPLATE = {
         title: '',
@@ -21,8 +14,7 @@
     const resetTodo = () => (todo = Object.assign({}, TODO_TEMPLATE));
 
     function pushToTodos(param) {
-        todoList.push(todo);
-        todos.set(todoList);
+        todosState.pushTodo(todo);
         removeFocus({ target: addBtn });
     }
 
@@ -30,8 +22,6 @@
         target.blur();
         resetTodo();
     }
-
-    onDestroy(unsubscribe);
 </script>
 
 <form class="todo-form" action="#" on:submit|preventDefault={pushToTodos}>
